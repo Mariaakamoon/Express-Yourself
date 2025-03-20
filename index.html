@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Yourself</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #f8bbd0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #212121;
+            color: #ff4081;
+            padding: 1em 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(255, 64, 129, 0.3);
+            box-sizing: border-box;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .intro img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .interests {
+            margin-top: 20px;
+        }
+
+        .interests ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .interests li {
+            background-color: #373737;
+            color: #ff80ab;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .interests li:hover {
+            background-color: #4a4a4a;
+        }
+
+        .expression-form {
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .expression-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ff4081;
+            background-color: #333;
+            color: #f8bbd0;
+            border-radius: 5px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        .expression-form button {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .expression-display {
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .expression-item {
+            border: 1px solid #ff4081;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            word-wrap: break-word;
+            background-color: #333;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #ff80ab;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Express Yourself</h1>
+    </header>
+    <main>
+        <div class="intro">
+            <img id="profileImage" src="C:\Users\Neena Gladston\Downloads\IMG-20250201-WA0016.jpg" alt="Your Profile">
+            <h2>Hi, I'm Maria!</h2>
+            <p>I'm more of an offline person—I enjoy being present in the moment rather than staying glued to screens. But that doesn’t mean I don’t enjoy spending time online! I love singing and dancing; they bring me so much joy and energy. Reading novels is another passion of mine, as it lets me explore different worlds and perspectives. I also paint from time to time, which helps me express my creativity in a different way. Nice to meet you!</p>
+        </div>
+
+        <div class="interests">
+            <h3>My Interests:</h3>
+            <ul>
+                <li>Singing</li>
+                <li>Dancing</li>
+                <li>Reading Novels</li>
+                <li>Painting</li>
+            </ul>
+        </div>
+
+        <div class="expression-form">
+            <h3>Share Your Feelings:</h3>
+            <textarea id="expressionText" placeholder="How are you feeling today?"></textarea>
+            <button onclick="addExpression()">Post</button>
+        </div>
+
+        <div class="expression-display" id="expressionDisplay">
+            <h3>Feelings Shared:</h3>
+        </div>
+
+        <div class="social-links">
+            <h3>Connect with me:</h3>
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="https://www.instagram.com/maria.joanna_?igsh=aGR0YzQ3dHJleXRv" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/maria-joanna-neena-shaji-aaa39b32a/" target="_blank">LinkedIn</a>
+        </div>
+    </main>
+
+    <script>
+        function addExpression() {
+            const expressionText = document.getElementById("expressionText").value;
+            if (expressionText.trim() !== "") {
+                const expressionDisplay = document.getElementById("expressionDisplay");
+                const expressionItem = document.createElement("div");
+                expressionItem.classList.add("expression-item");
+                expressionItem.textContent = expressionText;
+                expressionDisplay.appendChild(expressionItem);
+                document.getElementById("expressionText").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
